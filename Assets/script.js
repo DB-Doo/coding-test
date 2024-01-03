@@ -45,6 +45,7 @@ let timerInterval;
 
 // start quiz Function
 function startQuiz() {
+    console.log("start quiz  function called");
     //hides the start screen
     document.getElementById('start-screen').style.display = 'none';
 
@@ -60,6 +61,7 @@ function startQuiz() {
 
 // Update timer function
 function updateTimer() {
+    console.log("update timer function called");
     // timer ticks down 1 sec at a time
     timeLeft--;
 
@@ -72,8 +74,45 @@ function updateTimer() {
     }
 }
 
+// handle the answer selection Function
+function handleAnswer(selectedAnswer, answerButton) {
+    // Disable all answer buttons to prevent multiple answers
+    document.querySelectorAll('#answers button').forEach(button => {
+        button.disabled = true;
+
+        // If the button's answer is the correct one, highlight it in green
+        if (button.innerText === quizQuestions[currentQuestionIndex].correctAnswer) {
+            button.style.backgroundColor = 'lightgreen';
+        }
+    });
+
+    // shows user whether selected answer is right or not 
+    if (selectedAnswer === quizQuestions[currentQuestionIndex].correctAnswer) {
+        answerButton.style.backgroundColor = 'green';
+    } else {
+        // wrong answer will turn red if user chooses it
+        answerButton.style.backgroundColor = 'red';
+        // if user answers incorrectly timer deducts 10 seconds
+        timeLeft -= 10;
+    }
+
+    // wait 1 sec before showing the next question or end quiz
+    setTimeout(() => {
+        // Goes to the next question by increasing the index
+        currentQuestionIndex++;
+        // If there's more questions to show then show them, if not then end quiz
+        if (currentQuestionIndex < quizQuestions.length) {
+            showQuestion();
+        } else {
+            endQuiz();
+        }
+    }, 1000); // 1 sec delay so user can see if they got it right or not 
+}
+
+
 // Show current question function
 function showQuestion() {
+    console.log("show question function called");
     // retrieves the current question based on currentQuestionIndex
     const questionData = quizQuestions[currentQuestionIndex];
 
@@ -95,34 +134,15 @@ function showQuestion() {
         button.innerText = answer;
 
         // adds an event listener to the button to handle answer selection when clicked
-        button.addEventListener('click', () => handleAnswer(answer));
+        button.addEventListener('click', () => handleAnswer(answer, button));
 
         // adds the button to the answersElement on the page
         answersElement.appendChild(button);
     });
 }
-
-// handle the answer selection Function
-function handleAnswer(selectedAnswer) {
-    // Checks to see if the answer the user selected is the right one
-    if (selectedAnswer !== quizQuestions[currentQuestionIndex].correctAnswer) {
-        // if user answers incorrectly timer deducts 10 seconds
-        timeLeft -= 10;
-    }
-
-    // Goes to the next question by increasing the index 
-    currentQuestionIndex++;
-
-    // If there's more questions to show then show them, if not then end quiz
-    if (currentQuestionIndex < quizQuestions.length) {
-        showQuestion();
-    } else {
-        endQuiz();
-    }
-}
-
 // end quiz function
 function endQuiz() {
+    console.log("endQuiz function called");
     // Stops timer
     clearInterval(timerInterval);
 
@@ -137,11 +157,25 @@ function endQuiz() {
 }
 
 // Submitscore function
+function submitScore() {
+    console.log("submitScore function called");
+    // Gets the initials from the input field that user put in 
+    const initials = document.getElementById('initials').value;
+
+    // gets the high scores from localStorage, or creates a new empty array if not found
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+    // push the new score to the high scores array
+    highScores.push({ initials, score: timeLeft });
+
+    // Saves the updated high scores array to localStorage.
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+
+}
 
 // Attach event listeners
-
 // click listener to start button
 document.getElementById('start-btn').addEventListener('click', startQuiz);
 
 // Click listener for submit score button 
-
+document.getElementById('submit-score').addEventListener('click', submitScore);
