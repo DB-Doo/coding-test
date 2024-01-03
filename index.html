@@ -1,1 +1,28 @@
-<!-- Setup basic structure of html page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coding Quiz</title>
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    <!-- Made three screens to show/hide as the user progresses though the quiz-->
+    <div id="quiz-container">
+        <div id="start-screen">
+            <button id="start-btn">Start Quiz</button>
+        </div>
+
+        <div id="question-screen" style="display: none;">
+            <div id="question"></div>
+            <div id="answers"></div>
+        </div>
+        <div id="end-screen" style="display: none;">
+            <span id="final-score"></span>
+            <input type="text" id="initials" placeholder="Enter Initials">
+            <button id="submit-score">Submit Score</button>
+        </div>
+    </div>
+    <script src="./assets/script.js"></script>
+</body>
+</html>
