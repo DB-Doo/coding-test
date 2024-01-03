@@ -173,7 +173,33 @@ function submitScore() {
     // Saves the updated high scores array to localStorage.
     localStorage.setItem('highScores', JSON.stringify(highScores));
 
+    // update and display the high scores
+    showHighScores();
+
 }
+
+function showHighScores() {
+    console.log("showHighScores called");
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    highScores.sort((a, b) => b.score - a.score);
+
+    // build high score list
+    const highScoresList = document.getElementById('high-scores-list');
+    highScoresList.innerHTML = ''; // clear existing list items
+
+    // take the top 5 scores and display them
+    highScores.slice(0, 5).forEach(score => {
+        const scoreElement = document.createElement('li');
+        scoreElement.textContent = `${score.initials}: ${score.score}`;
+        highScoresList.appendChild(scoreElement);
+    });
+
+    // hide the end screen to prevent multiple submissions
+    document.getElementById('end-screen').style.display = 'none';
+    // display high scores!
+    document.getElementById('high-scores').style.display = 'block';
+}
+
 
 // Attach event listeners
 // click listener to start button
