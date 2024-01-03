@@ -39,7 +39,6 @@ const quizQuestions = [
     // Add more questions here
 ];
 
-
 let currentQuestionIndex = 0;
 let timeLeft = 60; // time limit
 let timerInterval;
@@ -123,11 +122,26 @@ function handleAnswer(selectedAnswer) {
 }
 
 // end quiz function
+function endQuiz() {
+    // Stops timer
+    clearInterval(timerInterval);
+
+    // hides the question screen
+    document.getElementById('question-screen').style.display = 'none';
+
+    // Show end screen 
+    document.getElementById('end-screen').style.display = 'block';
+
+    // score is displayed which is equal to time left
+    document.getElementById('final-score').innerText = `Your score: ${timeLeft}`;
+}
 
 // Submitscore function
 
 // Attach event listeners
 
-// add a click listener to start button
+// click listener to start button
 document.getElementById('start-btn').addEventListener('click', startQuiz);
+
+// Click listener for submit score button 
 
