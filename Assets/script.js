@@ -76,11 +76,13 @@ function updateTimer() {
 
 // handle the answer selection Function
 function handleAnswer(selectedAnswer, answerButton) {
-    // Disable all answer buttons to prevent multiple answers
+    console.log("handle answer function called");
+    // disable all answer buttons to prevent multiple answers
     document.querySelectorAll('#answers button').forEach(button => {
         button.disabled = true;
+        console.log("buttons disabled correctly");
 
-        // If the button's answer is the correct one, highlight it in green
+        // if the buttons answer is the correct one highlight it in green
         if (button.innerText === quizQuestions[currentQuestionIndex].correctAnswer) {
             button.style.backgroundColor = 'lightgreen';
         }
@@ -92,15 +94,15 @@ function handleAnswer(selectedAnswer, answerButton) {
     } else {
         // wrong answer will turn red if user chooses it
         answerButton.style.backgroundColor = 'red';
-        // if user answers incorrectly timer deducts 10 seconds
+        // if user answers incorrectly timer deducts 10 seconds from total time. possible to get a negative score due to answering wrong below 10 seconds
         timeLeft -= 10;
     }
 
     // wait 1 sec before showing the next question or end quiz
     setTimeout(() => {
-        // Goes to the next question by increasing the index
+        // goes to the next question by increasing question index
         currentQuestionIndex++;
-        // If there's more questions to show then show them, if not then end quiz
+        // if theres more questions to show then show them, if not then end quiz
         if (currentQuestionIndex < quizQuestions.length) {
             showQuestion();
         } else {
