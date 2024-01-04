@@ -194,11 +194,23 @@ function showHighScores() {
         highScoresList.appendChild(scoreElement);
     });
 
-    // hide the end screen to prevent multiple submissions
-    document.getElementById('end-screen').style.display = 'none';
+    // Hide the quiz container when showing high scores
+    document.getElementById('quiz-container').style.display = 'none';
     // display high scores!
     document.getElementById('high-scores').style.display = 'block';
 }
+
+// much needed restart quiz button
+function restartQuiz() {
+    currentQuestionIndex = 0; // reset question index so it displays the first one when start screen displays
+    timeLeft = 60; // Reset the time
+    document.getElementById('high-scores').style.display = 'none'; //hide high score
+    document.getElementById('quiz-container').style.display = 'block'; // redisplay quiz container
+    document.getElementById('start-screen').style.display = 'block';
+    document.getElementById('question-screen').style.display = 'none';
+    document.getElementById('end-screen').style.display = 'none';
+}
+
 
 
 // Attach event listeners
@@ -207,3 +219,6 @@ document.getElementById('start-btn').addEventListener('click', startQuiz);
 
 // Click listener for submit score button 
 document.getElementById('submit-score').addEventListener('click', submitScore);
+
+// listen for restart quiz button click
+document.getElementById('restart-btn').addEventListener('click', restartQuiz);

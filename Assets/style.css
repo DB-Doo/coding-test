@@ -1,19 +1,89 @@
-/* Need basic styling. nothing fancy */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    color: #333;
 }
 
 #quiz-container {
     width: 80%;
     max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    border-radius: 8px;
 }
 
 button {
-    padding: 10px 10px;
-    margin-top: 20px;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#timer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+#final-score {
+    font-size: 1.5em;
+    color: #28a745;
+    margin: 20px 0;
+}
+
+#high-scores-list li {
+    list-style: none;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+#high-scores-list li:last-child {
+    border-bottom: none;
+}
+
+#restart-btn {
+    background-color: #dc3545;
+}
+
+#restart-btn:hover {
+    background-color: #c82333;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
 }
