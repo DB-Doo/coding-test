@@ -24,3 +24,7 @@ Score Tracking: The application keeps track of the user's score, which is based 
 High Score Leaderboard: Users can view and save their high scores, competing for top spots on the leaderboard.
 
 Responsive Design: The application is designed to be user-friendly and is accessible on various devices and screen sizes.
+
+## contributions
+
+Much of this was built over Christmas break but there were a few things that werent working quite properly. I started over basically today and pieced it all together slowly again to help me debug it and submit. I also added a few ideas like displaying high score, instant feedback on right/wrong answers, and a working restart button. I used a web app called "WebFlow" to help me understand how to write the css styling so the page looked more modern. My favorite challenge yet! 
