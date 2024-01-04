@@ -3,10 +3,10 @@
 # Coding Quiz Application
 
 
-## link to application
+## Link to application
 https://db-doo.github.io/coding-test/
 
-## screenshot
+## Screenshot
 <img src="./assets/screenshot.png"/>
 
 ## Description
@@ -25,6 +25,17 @@ High Score Leaderboard: Users can view and save their high scores, competing for
 
 Responsive Design: The application is designed to be user-friendly and is accessible on various devices and screen sizes.
 
-## contributions
+## Contributions
 
-Much of this was built over Christmas break but there were a few things that werent working quite properly. I started over basically today and pieced it all together slowly again to help me debug it and submit. I also added a few ideas like displaying high score, instant feedback on right/wrong answers, and a working restart button. I used a web app called "WebFlow" to help me understand how to write the css styling so the page looked more modern. My favorite challenge yet! 
+Much of this was built over Christmas break but there were a few things that werent working quite properly. I started over today and pieced it all together slowly again to help me debug it and submit. 
+
+My instructor helped me figure out why my links werent working. I guess  github doesnt like capital letters in files structures.
+
+I was having so much fun with this project that I decided to also add a few ideas like:
+ * displaying high score
+ * instant feedback on right/wrong answers
+ * a working restart button
+ * clear high score button
+ * time deduction notifications
+ 
+ I used a web app called "WebFlow" to help me understand how to write the css styling so the page looked more modern. I figured spending more time on the javascript was more important for this than trying  My favorite challenge yet! 
