@@ -38,6 +38,6 @@ I was having so much fun with this project that I decided to also add a few idea
  * clear high score button
  * time deduction notifications
  
- I used a web app called "WebFlow" to help me understand how to write the css styling so the page looked more modern. The app lets me place customize a webpage styling with an intuitive GUI and lets me read the code used to replicate that styling. 
+ I used a web app called "WebFlow" to help me understand how to write the css styling so the page looked more modern. The app lets me place elements on a blank webpage and style them how I like with an intuitive GUI, then lets me read the code used to replicate that styling! Heck yeah!
  
  This was my favorite challenge yet! 
