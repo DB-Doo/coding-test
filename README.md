@@ -29,15 +29,18 @@ Responsive Design: The application is designed to be user-friendly and is access
 
 Much of this was built over Christmas break but there were a few things that werent working quite properly. I started over today and pieced it all together slowly again to help me debug it and submit. 
 
-My instructor helped me figure out why my links werent working. I guess  github doesnt like capital letters in files structures.
+Much of this project was built over Christmas break, but there were a few things that weren't working quite properly. I started over today and pieced it all together slowly again to help me debug and submit it.
 
-I was having so much fun with this project that I decided to also add a few ideas like:
- * displaying high score
- * instant feedback on right/wrong answers
- * a working restart button
- * clear high score button
- * time deduction notifications
- 
- I used a web app called "WebFlow" to help me understand how to write the css styling so the page looked more modern. The app lets me place elements on a blank webpage and style them how I like with an intuitive GUI, then lets me read the code used to replicate that styling! Heck yeah!
- 
- This was my favorite challenge yet! 
+My instructor helped me figure out why my links weren't working. I realized that GitHub doesn't like capital letters in file structures.
+
+I was having so much fun with this project that I decided to also add a few features, like:
+
+* Displaying high scores
+* Instant feedback on right/wrong answers
+* A working restart button
+* A clear high score button
+* Time deduction notifications
+
+I used a web app called "WebFlow" to help me understand how to write the CSS styling so the page looked more modern. WebFlow allows me to place elements on a blank webpage, style them as I prefer, and then shows me the underlying code for that styling. It's an incredibly useful tool!
+
+This has been my favorite challenge yet!
