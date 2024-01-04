@@ -27,8 +27,6 @@ Responsive Design: The application is designed to be user-friendly and is access
 
 ## Contributions
 
-Much of this was built over Christmas break but there were a few things that werent working quite properly. I started over today and pieced it all together slowly again to help me debug it and submit. 
-
 Much of this project was built over Christmas break, but there were a few things that weren't working quite properly. I started over today and pieced it all together slowly again to help me debug and submit it.
 
 My instructor helped me figure out why my links weren't working. I realized that GitHub doesn't like capital letters in file structures.
