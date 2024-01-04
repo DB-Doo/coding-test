@@ -46,6 +46,8 @@ let timerInterval;
 // start quiz Function
 function startQuiz() {
     console.log("start quiz  function called");
+    // clear out any timer intervals that might remain
+    clearInterval(timerInterval);
     //hides the start screen
     document.getElementById('start-screen').style.display = 'none';
 
@@ -109,6 +111,30 @@ function handleAnswer(selectedAnswer, answerButton) {
             endQuiz();
         }
     }, 1000); // 1 sec delay so user can see if they got it right or not 
+    if (selectedAnswer !== quizQuestions[currentQuestionIndex].correctAnswer) {
+        // Existing code for wrong answer handling
+        showTimeDeductionPopup(10); // Assuming 10 seconds are deducted
+    }
+}
+
+// function to show time reduction when user answers wrong
+function showTimeDeductionPopup(deduction) {
+    const popup = document.createElement('div');
+    popup.innerText = `-${deduction} seconds`;
+    popup.id = 'time-deduction-popup';
+
+    const timerElement = document.getElementById('timer');
+    document.body.appendChild(popup); // Append to body for absolute positioning
+
+    // Position the popup next to the timer
+    const timerRect = timerElement.getBoundingClientRect();
+    popup.style.top = `${timerRect.top}px`;
+    popup.style.left = `${timerRect.right + 10}px`; // 10px right from the timer
+
+    // Automatically remove the popup after a short delay
+    setTimeout(() => {
+        popup.remove();
+    }, 2000); // Popup will disappear after 2 seconds
 }
 
 
@@ -204,14 +230,22 @@ function showHighScores() {
 function restartQuiz() {
     currentQuestionIndex = 0; // reset question index so it displays the first one when start screen displays
     timeLeft = 60; // Reset the time
+    document.getElementById('timer').innerText = `Time: ${timeLeft}s`;
     document.getElementById('high-scores').style.display = 'none'; //hide high score
     document.getElementById('quiz-container').style.display = 'block'; // redisplay quiz container
     document.getElementById('start-screen').style.display = 'block';
     document.getElementById('question-screen').style.display = 'none';
     document.getElementById('end-screen').style.display = 'none';
+    document.getElementById('initials').value = ''; // resets input field to be blank after reset. Dont need to reload page anymore
 }
 
+function clearHighScores() {
+    // Clear high scores from localStorage
+    localStorage.removeItem('highScores');
 
+    // Update the high scores display, assuming you have a function to do this
+    showHighScores();
+}
 
 // Attach event listeners
 // click listener to start button
@@ -222,3 +256,6 @@ document.getElementById('submit-score').addEventListener('click', submitScore);
 
 // listen for restart quiz button click
 document.getElementById('restart-btn').addEventListener('click', restartQuiz);
+
+// listen for clear high scores button click
+document.getElementById('clear-high-scores-btn').addEventListener('click', clearHighScores);
